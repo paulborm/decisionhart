@@ -55,6 +55,13 @@ export default function IndexPage() {
     return (
         <div>
             {
+                choices && choices.length >= 2
+                && !isFormVisible
+                && !pickerStatus
+                    &&
+                    <button onClick={reset}>reset</button>
+            }
+            {
                 choices && choices.length < 2
                 && !isFormVisible
                     &&
