@@ -1,4 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
+import Button from "../Button";
+
+import "./_ChoicesForm.scss";
+import Headline from "../Headline";
 
 export default function ChoicesForm({ 
         isVisible,
@@ -10,11 +14,14 @@ export default function ChoicesForm({
     
     if (!isVisible) return null;
     
+    const baseName = "ChoicesForm";
     const inputEl = useRef(null);
+    const listEl = useRef(null);
     const [input, setInput] = useState("");
 
     // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
+        listEl.current.scrollIntoView(false);
         inputEl.current.focus();
     });
 
@@ -30,26 +37,51 @@ export default function ChoicesForm({
     }
 
     return (
-        <div>
-            <ul>
-                {
-                    choices.map(choice => {
-                        return (
-                            <li key={choice.id}>{choice.title}</li>
-                        );
-                    })
-                }
-            </ul>
-            <form onSubmit={onFormSubmit}>
-                <input 
-                    type="text" 
-                    value={input} 
-                    ref={inputEl} 
-                    onChange={onInputChange} 
-                />
-            </form>
-            <button onClick={confirm}>Bestätigen</button>
-            <button onClick={abort}>Abbrechen</button>
+        <div className={baseName}>
+            <div className={`${baseName}__header`}>
+                <Headline size="h1">Was steht zur Auswahl?</Headline>
+            </div>
+            <div className={`${baseName}__body`}>
+                <ol className={`${baseName}__list`} ref={listEl}>
+                    {
+                        choices.map(choice => {
+                            return (
+                                <li className={`${baseName}__listItem`} key={choice.id}>{choice.title}</li>
+                            );
+                        })
+                    }
+                    <li className={`${baseName}__listItem ${baseName}__listItem--input`}>
+                        <form className={`${baseName}__form`} onSubmit={onFormSubmit}>
+                            <div className={`${baseName}__input`}>
+                                <input 
+                                    type="text" 
+                                    value={input} 
+                                    placeholder="Möglichkeit hinzufügen..."
+                                    ref={inputEl} 
+                                    onChange={onInputChange} 
+                                />
+                            </div>
+                        </form>
+                    </li>
+                </ol>
+            </div>
+            <div className={`${baseName}__controls`}>
+                <Button
+                    text
+                    className={`${baseName}__controlItem`} 
+                    onClick={abort}
+                >
+                    Abbrechen
+                </Button>
+                <Button 
+                    text={choices.length < 2}
+                    disabled={choices.length < 2}
+                    className={`${baseName}__controlItem`} 
+                    onClick={confirm}
+                >
+                    Bestätigen
+                </Button>
+            </div>
         </div>
     )
 }

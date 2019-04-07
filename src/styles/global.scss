@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --gutter: 20;
+    --color-primary: rgb(136, 6, 175);
+    --color-secondary: #ea1678;
+    --color-background: #ffffff;
+    --color-text: #000000;
+    --color-text-light: lightgray;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #000213;
+        --color-text: #a5a8d2;
+        --color-text-light: #444766;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Helvetica', sans-serif;
+    background-color: var(--color-background);
+}

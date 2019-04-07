@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import _ from "lodash";
 import RandomPicker from "../components/RandomPicker";
 import ChoicesForm from "../components/ChoicesForm";
+import Intro from "../components/Intro";
 
 export default function IndexPage() {
     const [choices, setChoices] = useState([]);
@@ -65,7 +66,7 @@ export default function IndexPage() {
                 choices && choices.length < 2
                 && !isFormVisible
                     &&
-                    <button onClick={toggleForm}>Neue Entscheidung</button>
+                    <Intro toggleForm={toggleForm} />
             }
             <ChoicesForm 
                 isVisible={isFormVisible}

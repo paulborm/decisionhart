@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import RandomPickerChoice from "./choice";
 import RandomPickerControls from "./controls";
 
+import './_RandomPicker.scss';
+
 export default class RandomPicker extends React.PureComponent {
     constructor() {
         super();

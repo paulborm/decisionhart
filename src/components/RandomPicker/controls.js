@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "../Button";
 
 export default function RandomPickerControls({
         isRunning,
@@ -12,12 +13,12 @@ export default function RandomPickerControls({
     
     return (
         <div className="RandomPicker__controls">
-            <button
+            <Button
                 className={`RandomPicker__button ${isRunning && 'RandomPicker__button--stop'}`}
                 onClick={isRunning ? stop : start}
             >
                 {isRunning ? 'stop' : 'start'}
-            </button>
+            </Button>
         </div>
     );
 }

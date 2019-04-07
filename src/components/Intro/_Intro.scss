@@ -1,0 +1,12 @@
+.Intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: calc(var(--gutter) * 1px);
+
+    &__title {
+        margin-bottom: 32px;
+    }
+}
