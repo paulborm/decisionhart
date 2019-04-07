@@ -3,6 +3,7 @@ import _ from "lodash";
 import RandomPicker from "../components/RandomPicker";
 import ChoicesForm from "../components/ChoicesForm";
 import Intro from "../components/Intro";
+import Button from "../components/Button";
 
 export default function IndexPage() {
     const [choices, setChoices] = useState([]);
@@ -35,7 +36,6 @@ export default function IndexPage() {
     }
 
     function abortForm() {
-        setLocalChoices([]);
         toggleForm();
     }
     
@@ -91,12 +91,12 @@ export default function IndexPage() {
                 && !isFormVisible
                 && !pickerStatus
                     &&
-                    <button onClick={toggleForm}>Optionen bearbeiten</button>
+                    <Button text onClick={toggleForm}>Optionen bearbeiten</Button>
             }
             {
                 pickerStatus && pickerStatus.trim().toLowerCase() === 'finished'
                     &&
-                    <button onClick={reset}>Okay</button>
+                    <Button onClick={reset}>Okay</Button>
             }
         </div>
     )
