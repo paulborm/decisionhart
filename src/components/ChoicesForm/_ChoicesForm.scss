@@ -19,6 +19,7 @@
         flex: 1 1 auto;
         padding-bottom: 0;
         overflow-Y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
     &__controls {
