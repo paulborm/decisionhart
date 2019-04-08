@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import RandomPickerChoice from "./choice";
-import RandomPickerControls from "./controls";
+import Button from "../Button";
+import Headline from "../Headline";
+import Shell from "../../layout/Shell";
 
 import './_RandomPicker.scss';
 
@@ -59,17 +61,49 @@ export default class RandomPicker extends React.PureComponent {
     }
 
     render() {
-        const { isRunning, isFinished, currentChoice } = this.state;
+        const { isRunning, currentChoice } = this.state;
+        const { toggleForm, status, reset } = this.props;
 
         return (
             <div className="RandomPicker">
-                <RandomPickerChoice choice={currentChoice} />
-                <RandomPickerControls
-                    isRunning={isRunning}
-                    isFinished={isFinished}
-                    start={this.start}
-                    stop={this.stop}
-                />
+                <Shell>
+                    <Shell.Header>
+                        <Headline size="h1">Lass die Würfen entscheiden!</Headline>
+                    </Shell.Header>
+                    <Shell.Body>
+                        <div className="RandomPicker__body">
+                            <RandomPickerChoice choice={currentChoice} />
+                        </div>
+                    </Shell.Body>
+                    <Shell.Controls>                        
+                        {
+                            status && status.trim().toLowerCase() === 'finished'
+                                ?
+                                <Button 
+                                    className={`RandomPicker__button`} 
+                                    onClick={reset}
+                                >
+                                    Jawohl wird gemacht
+                                </Button>
+                                :
+                                <React.Fragment>
+                                    <Button 
+                                        text 
+                                        className={`RandomPicker__button`} 
+                                        onClick={toggleForm}
+                                    >
+                                        Möglichkeiten bearbeiten
+                                    </Button>
+                                    <Button
+                                        className={`RandomPicker__button ${isRunning && 'RandomPicker__button--stop'}`}
+                                        onClick={isRunning ? this.stop : this.start}
+                                    >
+                                        {isRunning ? 'stop' : 'start'}
+                                    </Button>
+                                </React.Fragment>
+                        }
+                    </Shell.Controls>
+                </Shell>
             </div>
         );
     }

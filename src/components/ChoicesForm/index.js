@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import Shell from "../../layout/Shell";
 import Button from "../Button";
 import Headline from "../Headline";
 
@@ -40,22 +41,24 @@ export default function ChoicesForm({
 
     return (
         <div className={baseName}>
-            <div className={`${baseName}__header`}>
+        <Shell>
+            <Shell.Header>
                 <Headline size="h1">Was steht zur Auswahl?</Headline>
-            </div>
-            <div className={`${baseName}__body`}>
+            </Shell.Header>
+            <Shell.Body>
                 <ol className={`${baseName}__list`} ref={listEl}>
                     {
                         choices.map(choice => {
                             return (
                                 <li className={`${baseName}__listItem`} key={choice.id}>
                                     <div className={`${baseName}__listItemContent`}>{choice.title}</div>
-                                    <button 
+                                    <Button 
+                                        text
                                         className={`${baseName}__listItemRemove`}
                                         onClick={() => removeChoice(choice.id)}
                                     >
                                        <img src={garbageIcon} alt="" />
-                                    </button>
+                                    </Button>
                                 </li>
                             );
                         })
@@ -74,8 +77,8 @@ export default function ChoicesForm({
                         </form>
                     </li>
                 </ol>
-            </div>
-            <div className={`${baseName}__controls`}>
+            </Shell.Body>
+            <Shell.Controls>
                 <Button
                     text
                     className={`${baseName}__controlItem`} 
@@ -91,7 +94,8 @@ export default function ChoicesForm({
                 >
                     Bestätigen
                 </Button>
-            </div>
+            </Shell.Controls>
+        </Shell>
         </div>
     )
 }

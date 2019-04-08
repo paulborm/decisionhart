@@ -20,6 +20,7 @@ export default function Intro({ headline, toggleForm }) {
             "Entscheidung gefällig?",
             "Frische Entscheidungen zum mitnehmen.",
             "Ratlos in Seattle.",
+            "Lieber entscheiden, als leiden.",
         ];
         const pickedChoice = greetings[Math.floor(Math.random() * greetings.length)];
         setGreeting(pickedChoice);

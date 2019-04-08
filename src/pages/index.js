@@ -64,11 +64,13 @@ export default function IndexPage() {
     return (
         <div>
             {
+                /*
                 choices && choices.length >= 2
                 && !isFormVisible
                 && !pickerStatus
                     &&
                     <button onClick={reset}>reset</button>
+                */
             }
             {
                 choices && choices.length < 2
@@ -91,21 +93,12 @@ export default function IndexPage() {
                     &&
                     <RandomPicker 
                         items={choices.map(object => object.title)} 
+                        toggleForm={toggleForm}
+                        reset={reset}
+                        status={pickerStatus}
                         onStart={whilePickerRunning}
                         onStop={afterPickerFinshed}
                     />
-            }
-            {
-                choices && choices.length > 0
-                && !isFormVisible
-                && !pickerStatus
-                    &&
-                    <Button text onClick={toggleForm}>Optionen bearbeiten</Button>
-            }
-            {
-                pickerStatus && pickerStatus.trim().toLowerCase() === 'finished'
-                    &&
-                    <Button onClick={reset}>Okay</Button>
             }
         </div>
     )
