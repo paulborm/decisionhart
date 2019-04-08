@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import Button from "../Button";
-
-import "./_ChoicesForm.scss";
 import Headline from "../Headline";
+
+import garbageIcon from "../../images/icon-garbage.svg";
+import "./_ChoicesForm.scss";
 
 export default function ChoicesForm({ 
         isVisible,
         choices, 
         addChoice,
+        removeChoice,
         confirm,
         abort
     }) {
@@ -46,7 +48,15 @@ export default function ChoicesForm({
                     {
                         choices.map(choice => {
                             return (
-                                <li className={`${baseName}__listItem`} key={choice.id}>{choice.title}</li>
+                                <li className={`${baseName}__listItem`} key={choice.id}>
+                                    <div className={`${baseName}__listItemContent`}>{choice.title}</div>
+                                    <button 
+                                        className={`${baseName}__listItemRemove`}
+                                        onClick={() => removeChoice(choice.id)}
+                                    >
+                                       <img src={garbageIcon} alt="" />
+                                    </button>
+                                </li>
                             );
                         })
                     }

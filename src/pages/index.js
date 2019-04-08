@@ -22,6 +22,14 @@ export default function IndexPage() {
         setLocalChoices(newChoices);
     };
 
+    function removeLocalChoice(id) {
+        const newChoices = localChoices.filter(choice => choice.id !== id);
+        const choices = [
+            ...newChoices,
+        ];
+        setLocalChoices(choices);
+    };
+
     function toggleForm() {
         setFormVisibility(!isFormVisible);
     }
@@ -72,6 +80,7 @@ export default function IndexPage() {
                 isVisible={isFormVisible}
                 choices={localChoices} 
                 addChoice={addLocalChoice}
+                removeChoice={removeLocalChoice}
                 toggleVisibility={toggleForm}
                 confirm={confirmForm}
                 abort={abortForm}
