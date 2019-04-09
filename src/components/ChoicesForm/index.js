@@ -24,7 +24,7 @@ export default function ChoicesForm({
 
     // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
-        listEl.current.scrollIntoView(false);
+        //listEl.current.scrollIntoView(false);
         inputEl.current.focus();
     });
 
@@ -64,7 +64,7 @@ export default function ChoicesForm({
                         })
                     }
                     <li className={`${baseName}__listItem ${baseName}__listItem--input`}>
-                        <form className={`${baseName}__form`} onSubmit={onFormSubmit}>
+                        <form className={`${baseName}__form`} onSubmit={onFormSubmit} onBlur={onFormSubmit}>
                             <div className={`${baseName}__input`}>
                                 <input 
                                     type="text" 

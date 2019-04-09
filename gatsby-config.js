@@ -18,18 +18,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `decisionHart`,
+        short_name: `decisionHart`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#8806af`,
+        theme_color: `#8806af`,
         display: `standalone`,
+        icon: 'src/images/decisionhart-icon.png',
       },
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-lodash`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }

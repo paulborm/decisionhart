@@ -1,6 +1,6 @@
 import React from "react";
 import { CSSTransition } from 'react-transition-group';
-import image from "./photo.jpg";
+import image from "./laura-photo.jpg";
 
 import "./_LoadingIndicator.scss";
 
