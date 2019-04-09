@@ -96,7 +96,7 @@ export default class RandomPicker extends React.PureComponent {
                                 transition: 'color 1000ms ease-in-out',
                             }}
                         >
-                            Lass die Würfen entscheiden!
+                            Lass die Würfel entscheiden!
                         </Headline>
                     </Shell.Header>
 
