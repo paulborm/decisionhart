@@ -38,8 +38,8 @@ export default class RandomPicker extends React.PureComponent {
             this.props.onStart();
         }
         clearInterval(this.interval);
-        this.interval = setInterval(this.setChoice, this.intervalDuration);
         this.setState({ isRunning: true });
+        this.interval = setInterval(this.setChoice, this.intervalDuration);
         setTimeout(() => {
             if (this.state.isRunning) {
                 this.stop()
@@ -63,22 +63,6 @@ export default class RandomPicker extends React.PureComponent {
 
     setChoice() {
         this.setState({ currentChoice: this.pickChoice() })
-    }
-
-    renderBody() {
-        const { isRunning, currentChoice } = this.state;
-
-        if (isRunning) {
-            return (
-                <div>is Running</div>
-            );
-        }
-
-        return (
-            <div className="RandomPicker__body">
-                <RandomPickerChoice choice={currentChoice} />
-            </div>
-        );
     }
 
     render() {
