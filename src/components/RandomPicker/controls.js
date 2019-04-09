@@ -5,21 +5,42 @@ import Button from "../Button";
 export default function RandomPickerControls({
         isRunning,
         isFinished,
+        status,
         start,
-        stop
+        stop,
+        reset,
+        toggleForm,
     }) {
-
-    if (isFinished) return null;
     
     return (
-        <div className="RandomPicker__controls">
-            <Button
-                className={`RandomPicker__button ${isRunning && 'RandomPicker__button--stop'}`}
-                onClick={isRunning ? stop : start}
-            >
-                {isRunning ? 'stop' : 'start'}
-            </Button>
-        </div>
+        <React.Fragment>
+            {
+                status && status.trim().toLowerCase() === 'finished'
+                    ?
+                    <Button 
+                        className={`RandomPicker__button`} 
+                        onClick={reset}
+                    >
+                        Okay
+                    </Button>
+                    :
+                    <React.Fragment>
+                        <Button 
+                            text 
+                            className={`RandomPicker__button`} 
+                            onClick={toggleForm}
+                        >
+                            Möglichkeiten bearbeiten
+                        </Button>
+                        <Button
+                            className={`RandomPicker__button ${isRunning && 'RandomPicker__button--stop'}`}
+                            onClick={isRunning ? stop : start}
+                        >
+                            {isRunning ? 'stop' : 'start'}
+                        </Button>
+                    </React.Fragment>
+            }
+        </React.Fragment>
     );
 }
 

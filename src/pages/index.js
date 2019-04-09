@@ -3,7 +3,6 @@ import _ from "lodash";
 import RandomPicker from "../components/RandomPicker";
 import ChoicesForm from "../components/ChoicesForm";
 import Intro from "../components/Intro";
-import Button from "../components/Button";
 
 export default function IndexPage() {
     const [choices, setChoices] = useState([]);

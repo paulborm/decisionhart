@@ -1,0 +1,44 @@
+.LoadingIndicator {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+
+    > img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    &-enter {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(.3) rotate(0deg);
+    }
+    
+    &-enter-active {
+        opacity: 1;
+        transform: scale(1) rotate(720deg);
+        transition: all 1000ms linear;
+    }
+
+    &-exit {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    &-exit-active {
+        opacity: 1;
+        transform: scale(0) rotate(720deg);
+        transition: all 1000ms linear;
+    }
+}
+
+@keyframes flikety {
+    from {
+        transform: scale(0.3) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(350deg);
+    }
+}

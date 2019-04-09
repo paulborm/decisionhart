@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import './_Headline.scss';
 
-const Headline = ({ className, children, as, size }) => {
+const Headline = ({ style, className, children, as, size }) => {
     const baseName = "sk-Headline";
     const classNames = [
         baseName,
@@ -12,7 +12,7 @@ const Headline = ({ className, children, as, size }) => {
     const Element = as;
 
     return (
-        <Element className={classNames.join(' ')}>
+        <Element className={classNames.join(' ')} style={style}>
             {children}
         </Element>
     )

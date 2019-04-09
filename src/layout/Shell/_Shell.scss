@@ -20,7 +20,8 @@
 
         flex: 1 1 auto;
         padding-bottom: 0;
-        overflow-Y: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
     }
 
@@ -32,6 +33,7 @@
         > .Button {
             flex: 1;
             padding: 0 1em;
+            border-radius: 0;
         }
     }
 }

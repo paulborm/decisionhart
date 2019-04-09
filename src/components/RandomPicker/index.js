@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import RandomPickerChoice from "./choice";
-import Button from "../Button";
 import Headline from "../Headline";
 import Shell from "../../layout/Shell";
 
 import './_RandomPicker.scss';
+import RandomPickerControls from "./controls";
+import LoadingIndicator from "../LoadingIndicator";
 
 export default class RandomPicker extends React.PureComponent {
     constructor() {
@@ -25,6 +26,10 @@ export default class RandomPicker extends React.PureComponent {
         this.stop = this.stop.bind(this);
         this.pickChoice = this.pickChoice.bind(this);
         this.setChoice = this.setChoice.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.setState({ isFinished: false })
     }
 
     start() {
@@ -60,48 +65,58 @@ export default class RandomPicker extends React.PureComponent {
         this.setState({ currentChoice: this.pickChoice() })
     }
 
-    render() {
+    renderBody() {
         const { isRunning, currentChoice } = this.state;
+
+        if (isRunning) {
+            return (
+                <div>is Running</div>
+            );
+        }
+
+        return (
+            <div className="RandomPicker__body">
+                <RandomPickerChoice choice={currentChoice} />
+            </div>
+        );
+    }
+
+    render() {
+        const { isRunning, isFinished, currentChoice } = this.state;
         const { toggleForm, status, reset } = this.props;
 
         return (
             <div className="RandomPicker">
                 <Shell>
                     <Shell.Header>
-                        <Headline size="h1">Lass die Würfen entscheiden!</Headline>
+                        <Headline 
+                            size="h1"
+                            style={{
+                                color: isFinished ? '#bbbbbb' : '#000',
+                                transition: 'color 1000ms ease-in-out',
+                            }}
+                        >
+                            Lass die Würfen entscheiden!
+                        </Headline>
                     </Shell.Header>
+
                     <Shell.Body>
                         <div className="RandomPicker__body">
-                            <RandomPickerChoice choice={currentChoice} />
+                            <LoadingIndicator isLoading={isRunning} duration={this.duration} />
+                            <RandomPickerChoice isRunning={isRunning} choice={currentChoice} />
                         </div>
                     </Shell.Body>
+
                     <Shell.Controls>                        
-                        {
-                            status && status.trim().toLowerCase() === 'finished'
-                                ?
-                                <Button 
-                                    className={`RandomPicker__button`} 
-                                    onClick={reset}
-                                >
-                                    Jawohl wird gemacht
-                                </Button>
-                                :
-                                <React.Fragment>
-                                    <Button 
-                                        text 
-                                        className={`RandomPicker__button`} 
-                                        onClick={toggleForm}
-                                    >
-                                        Möglichkeiten bearbeiten
-                                    </Button>
-                                    <Button
-                                        className={`RandomPicker__button ${isRunning && 'RandomPicker__button--stop'}`}
-                                        onClick={isRunning ? this.stop : this.start}
-                                    >
-                                        {isRunning ? 'stop' : 'start'}
-                                    </Button>
-                                </React.Fragment>
-                        }
+                        <RandomPickerControls 
+                            isRunning={isRunning}
+                            isFinished={isFinished}
+                            status={status}
+                            toggleForm={toggleForm}
+                            start={this.start}
+                            stop={this.stop}
+                            reset={reset}                            
+                        />
                     </Shell.Controls>
                 </Shell>
             </div>
