@@ -13,7 +13,7 @@ export default function HTML(props) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         {/*<!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->*/}
@@ -22,7 +22,7 @@ export default function HTML(props) {
         <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href={splashscreenIphonePlus} data-wm="appshell" />
         {/*<!-- iPhone 5 (640px x 1136px) -->*/}
         <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href={splashscreenIphoneSE} data-wm="appshell" />
-        
+
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

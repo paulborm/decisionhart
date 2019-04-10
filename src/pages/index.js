@@ -26,6 +26,7 @@ export default function IndexPage() {
     }
 
     function addLocalChoice(choice) {
+        /*
         const newChoices = [
             ...localChoices,
             {
@@ -33,6 +34,14 @@ export default function IndexPage() {
                 title: choice
             }
         ];
+        */
+        const newChoices = localChoices;
+        newChoices.push(
+            {
+                id: _.uniqueId(),
+                title: choice
+            }
+        );
         setLocalChoices(newChoices);
     };
 
@@ -60,11 +69,11 @@ export default function IndexPage() {
     function abortForm() {
         toggleForm();
     }
-    
+
     function whilePickerRunning() {
         setPickerStatus('running');
     }
-    
+
     function afterPickerFinshed() {
         setPickerStatus('finished');
     }
@@ -92,9 +101,9 @@ export default function IndexPage() {
                     &&
                     <Intro toggleForm={toggleForm} />
             }
-            <ChoicesForm 
+            <ChoicesForm
                 isVisible={isFormVisible}
-                choices={localChoices} 
+                choices={localChoices}
                 addChoice={addLocalChoice}
                 removeChoice={removeLocalChoice}
                 toggleVisibility={toggleForm}
@@ -105,8 +114,8 @@ export default function IndexPage() {
                 choices && choices.length >= 2
                 && !isFormVisible
                     &&
-                    <RandomPicker 
-                        items={choices.map(object => object.title)} 
+                    <RandomPicker
+                        items={choices.map(object => object.title)}
                         toggleForm={toggleForm}
                         reset={reset}
                         status={pickerStatus}

@@ -1,14 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Headline from "../Headline";
 
-export default function RandomPickerChoice({ isRunning, choice }) {
+export default function RandomPickerChoice({ choice }) {
     const content = choice.trim().length > 0 ? choice : '?';
-
-    //if (isRunning) return null;
 
     return (
         <div className="RandomPicker__choice">
-            <span className="RandomPicker__choiceItem">{content}</span>
+            <Headline size="h1">{content}</Headline>
         </div>
     );
 }

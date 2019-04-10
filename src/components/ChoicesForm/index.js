@@ -5,24 +5,24 @@ import Headline from "../Headline";
 
 import garbageIcon from "../../images/icon-garbage.svg";
 import "./_ChoicesForm.scss";
+import ChoicesInput from "./input";
 
-export default function ChoicesForm({ 
+export default function ChoicesForm({
         isVisible,
-        choices, 
+        choices,
         addChoice,
         removeChoice,
         confirm,
         abort
     }) {
-    
+
     if (!isVisible) return null;
-    
+
     const baseName = "ChoicesForm";
     const inputRef = useRef(null);
     const listRef = useRef(null);
     const [input, setInput] = useState("");
 
-    // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
         //listRef.current.scrollIntoView(false);
         inputRef.current.focus();
@@ -46,13 +46,21 @@ export default function ChoicesForm({
                 <Headline size="h1">Was steht zur Auswahl?</Headline>
             </Shell.Header>
             <Shell.Body className={`${baseName}__body`}>
+                <ChoicesInput
+                    baseName={baseName}
+                    value={input}
+                    onSubmit={onFormSubmit}
+                    onBlur={onFormSubmit}
+                    onChange={onInputChange}
+                    ref={inputRef}
+                />
                 <ol className={`${baseName}__list`} ref={listRef}>
                     {
                         choices.map(choice => {
                             return (
                                 <li className={`${baseName}__listItem`} key={choice.id}>
                                     <div className={`${baseName}__listItemContent`}>{choice.title}</div>
-                                    <Button 
+                                    <Button
                                         text
                                         className={`${baseName}__listItemRemove`}
                                         onClick={() => removeChoice(choice.id)}
@@ -63,33 +71,20 @@ export default function ChoicesForm({
                             );
                         })
                     }
-                    <li className={`${baseName}__listItem ${baseName}__listItem--input`}>
-                        <form className={`${baseName}__form`} onSubmit={onFormSubmit} onBlur={onFormSubmit}>
-                            <div className={`${baseName}__input`}>
-                                <input 
-                                    type="text" 
-                                    value={input} 
-                                    placeholder="Möglichkeit hinzufügen..."
-                                    ref={inputRef} 
-                                    onChange={onInputChange} 
-                                />
-                            </div>
-                        </form>
-                    </li>
                 </ol>
             </Shell.Body>
             <Shell.Controls>
                 <Button
                     text
-                    className={`${baseName}__controlItem`} 
+                    className={`${baseName}__controlItem`}
                     onClick={abort}
                 >
                     Abbrechen
                 </Button>
-                <Button 
+                <Button
                     text={choices.length < 2}
                     disabled={choices.length < 2}
-                    className={`${baseName}__controlItem`} 
+                    className={`${baseName}__controlItem`}
                     onClick={confirm}
                 >
                     Bestätigen
