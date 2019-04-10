@@ -18,18 +18,18 @@ export default function ChoicesForm({
     if (!isVisible) return null;
     
     const baseName = "ChoicesForm";
-    const inputEl = useRef(null);
-    const listEl = useRef(null);
+    const inputRef = useRef(null);
+    const listRef = useRef(null);
     const [input, setInput] = useState("");
 
     // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
-        //listEl.current.scrollIntoView(false);
-        inputEl.current.focus();
+        //listRef.current.scrollIntoView(false);
+        inputRef.current.focus();
     });
 
     function onInputChange() {
-        setInput(inputEl.current.value);
+        setInput(inputRef.current.value);
     }
 
     function onFormSubmit(event) {
@@ -45,8 +45,8 @@ export default function ChoicesForm({
             <Shell.Header>
                 <Headline size="h1">Was steht zur Auswahl?</Headline>
             </Shell.Header>
-            <Shell.Body>
-                <ol className={`${baseName}__list`} ref={listEl}>
+            <Shell.Body className={`${baseName}__body`}>
+                <ol className={`${baseName}__list`} ref={listRef}>
                     {
                         choices.map(choice => {
                             return (
@@ -70,7 +70,7 @@ export default function ChoicesForm({
                                     type="text" 
                                     value={input} 
                                     placeholder="Möglichkeit hinzufügen..."
-                                    ref={inputEl} 
+                                    ref={inputRef} 
                                     onChange={onInputChange} 
                                 />
                             </div>

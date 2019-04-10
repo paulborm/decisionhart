@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import Headline from "../Headline";
+import Shell from "../../layout/Shell";
 
 import './_Intro.scss';
 
@@ -28,16 +29,20 @@ export default function Intro({ headline, toggleForm }) {
 
     return (
         <div className={baseName}>
-            <Headline 
-                className={`${baseName}__title`} 
-                size="h1"
-            >
-                {greeting}
-            </Headline>
-            <Button
-                onClick={() => toggleForm()}
-                value="Hilfe!!1!"
-            />
+            <Shell>
+                <Shell.Body className={`${baseName}__body`}>
+                    <Headline 
+                        className={`${baseName}__title`} 
+                        size="h1"
+                    >
+                        {greeting}
+                    </Headline>
+                    <Button
+                        onClick={() => toggleForm()}
+                        value="Hilfe!!1!"
+                    />
+                </Shell.Body>
+            </Shell>
         </div>
     )
 }

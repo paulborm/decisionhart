@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import RandomPicker from "../components/RandomPicker";
 import ChoicesForm from "../components/ChoicesForm";
@@ -9,6 +9,21 @@ export default function IndexPage() {
     const [localChoices, setLocalChoices] = useState([]);
     const [isFormVisible, setFormVisibility] = useState(false);
     const [pickerStatus, setPickerStatus] = useState(null);
+
+    useEffect(() => {
+        setVh();
+
+        window.addEventListener('resize', setVh);
+
+        return () => {
+            window.removeEventListener('resize', setVh);
+        }
+    });
+
+    function setVh() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 
     function addLocalChoice(choice) {
         const newChoices = [

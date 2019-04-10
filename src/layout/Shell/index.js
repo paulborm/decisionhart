@@ -7,7 +7,7 @@ const baseName = "Shell";
 
 export default class Shell extends React.Component {
     static Header = ({ children }) => <Header>{children}</Header>;
-    static Body = ({ children }) => <Body>{children}</Body>;
+    static Body = ({ className, children }) => <Body className={className}>{children}</Body>;
     static Controls = ({ children }) => <Controls>{children}</Controls>;
 
     render() {
@@ -27,9 +27,13 @@ function Header({ children }) {
     );
 }
 
-function Body({ children }) {
+function Body({ className, children }) {
+    const classNames = [
+        `${baseName}__body`,
+        className,
+    ];
     return (
-        <div className={`${baseName}__body`}>
+        <div className={classNames.join(' ')}>
             {children}
         </div>
     );
