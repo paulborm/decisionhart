@@ -5,7 +5,7 @@ import Shell from "../../layout/Shell";
 
 import './_Intro.scss';
 
-export default function Intro({ headline, toggleForm }) {
+export default function Intro({ toggleForm }) {
     const baseName = "Intro";
     const [greeting, setGreeting] = useState('');
 
@@ -38,8 +38,8 @@ export default function Intro({ headline, toggleForm }) {
                         {greeting}
                     </Headline>
                     <Button
-                        onClick={() => toggleForm()}
-                        value="Hilfe!!1!"
+                        onClick={toggleForm}
+                        value="Hilfe!!!"
                     />
                 </Shell.Body>
             </Shell>
