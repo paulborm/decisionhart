@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import Shell from "../../layout/Shell";
 import Button from "../Button";
 import Headline from "../Headline";
-
-import garbageIcon from "../../images/icon-garbage.svg";
-import "./_ChoicesForm.scss";
 import ChoicesInput from "./input";
+import ChoicesList from "./list";
+
+import "./_ChoicesForm.scss";
 
 export default function ChoicesForm({
         isVisible,
@@ -20,11 +20,9 @@ export default function ChoicesForm({
 
     const baseName = "ChoicesForm";
     const inputRef = useRef(null);
-    const listRef = useRef(null);
     const [input, setInput] = useState("");
 
     useEffect(() => {
-        //listRef.current.scrollIntoView(false);
         inputRef.current.focus();
     });
 
@@ -54,24 +52,11 @@ export default function ChoicesForm({
                     onChange={onInputChange}
                     ref={inputRef}
                 />
-                <ol className={`${baseName}__list`} ref={listRef}>
-                    {
-                        choices.map(choice => {
-                            return (
-                                <li className={`${baseName}__listItem`} key={choice.id}>
-                                    <div className={`${baseName}__listItemContent`}>{choice.title}</div>
-                                    <Button
-                                        text
-                                        className={`${baseName}__listItemRemove`}
-                                        onClick={() => removeChoice(choice.id)}
-                                    >
-                                       <img src={garbageIcon} alt="" />
-                                    </Button>
-                                </li>
-                            );
-                        })
-                    }
-                </ol>
+                <ChoicesList
+                    baseName={baseName}
+                    items={choices}
+                    remove={removeChoice}
+                />
             </Shell.Body>
             <Shell.Controls>
                 <Button

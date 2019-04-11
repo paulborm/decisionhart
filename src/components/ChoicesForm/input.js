@@ -7,8 +7,12 @@ const ChoicesInput = React.forwardRef((
 
     const { baseName, value, onChange, onSubmit, onBlur } = props;
 
+    function _focusInput() {
+        ref.current.focus();
+    }
+
     return (
-        <div className={`${baseName}__formContainer`}>
+        <div className={`${baseName}__formContainer`} onClick={_focusInput}>
             <form className={`${baseName}__form`} onSubmit={onSubmit} onBlur={onBlur}>
                 <div className={`${baseName}__input`}>
                     <input

@@ -38,6 +38,8 @@
         line-height: 2em;
         list-style: none;
 
+        border-bottom: 1px solid #eaeaea;
+
         transform: rotate(180deg);
     }
 
@@ -72,16 +74,15 @@
             border-radius: 100%;
             background-color: var(--color-secondary);
         }
-
-        &:not(:first-child) {
-            border-bottom: 1px solid #eaeaea;
-        }
     }
 
     &__formContainer {
         &::before {
-            content: "#";
-            background-color: #d2d2d2;
+            display: block;
+            padding: 0.6em;
+            content: url(../../images/icon-add.svg);
+            box-sizing: border-box;
+            background-color: #ece5ef;
         }
     }
 
@@ -91,6 +92,11 @@
         &::before {
             content: counter(my-badass-counter);
             counter-increment: my-badass-counter;
+        }
+
+
+        &:not(:first-child) {
+            border-bottom: 1px solid #eaeaea;
         }
     }
 
@@ -118,12 +124,11 @@
     &__input {
         user-select: none;
 
-        > input,
-        > input::placeholder {
-            color: currentColor;
+        > input[type="text"]::placeholder {
+            color: #b1b1b1;
         }
 
-        > input {
+        > input[type="text"] {
             padding: 0;
             width: 100%;
             border: 0;
