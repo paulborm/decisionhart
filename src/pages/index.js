@@ -50,15 +50,19 @@ export default function IndexPage() {
 
     function confirmForm() {
         if (localChoices.length < 2) {
-            console.log('Es muss mindestens zwei Möglichkeiten geben')
             return;
         };
+
         setChoices(localChoices);
         toggleForm();
     }
 
     function abortForm() {
         toggleForm();
+
+        if (choices.length <= 0) {
+            reset();
+        };
     }
 
     function whilePickerRunning() {
@@ -77,15 +81,6 @@ export default function IndexPage() {
 
     return (
         <div>
-            {
-                /*
-                choices && choices.length >= 2
-                && !isFormVisible
-                && !pickerStatus
-                    &&
-                    <button onClick={reset}>reset</button>
-                */
-            }
             {
                 choices && choices.length < 2
                 && !isFormVisible
