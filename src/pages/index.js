@@ -26,7 +26,6 @@ export default function IndexPage() {
     }
 
     function addLocalChoice(choice) {
-        /*
         const newChoices = [
             ...localChoices,
             {
@@ -34,14 +33,6 @@ export default function IndexPage() {
                 title: choice
             }
         ];
-        */
-        const newChoices = localChoices;
-        newChoices.push(
-            {
-                id: _.uniqueId(),
-                title: choice
-            }
-        );
         setLocalChoices(newChoices);
     };
 
