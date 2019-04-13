@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Shell from "../../layout/Shell";
 import Button from "../Button";
 import Headline from "../Headline";
-import ChoicesInput from "./input";
+import ChoiceInput from "./ChoiceInput";
 import ChoicesList from "./list";
 
 import "./_ChoicesForm.scss";
@@ -44,8 +44,7 @@ export default function ChoicesForm({
                 <Headline size="h1">Was steht zur Auswahl?</Headline>
             </Shell.Header>
             <Shell.Body className={`${baseName}__body`}>
-                <ChoicesInput
-                    baseName={baseName}
+                <ChoiceInput
                     value={input}
                     onSubmit={onFormSubmit}
                     onBlur={onFormSubmit}
@@ -53,7 +52,6 @@ export default function ChoicesForm({
                     ref={inputRef}
                 />
                 <ChoicesList
-                    baseName={baseName}
                     items={choices}
                     remove={removeChoice}
                 />

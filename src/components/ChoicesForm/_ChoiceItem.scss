@@ -1,0 +1,31 @@
+.ChoiceItem {
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    &__title {
+        flex: 3;
+        padding: 24px;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: .05em;
+        line-height: 1.2;
+        hyphens: auto;
+    }
+
+    &__remove {
+        flex: 1;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        max-width: 100px;
+
+        > img {
+            display: block;
+            width: 14px;
+            height: auto;
+        }
+    }
+}

@@ -2,8 +2,6 @@
     display: flex;
     flex-direction: column;
 
-    counter-reset: my-badass-counter;
-
     &__header,
     &__body {
         padding: calc(var(--gutter) * 1px);
@@ -30,109 +28,5 @@
     &__controlItem {
         padding: 1.5em;
         width: 100%;
-    }
-
-    &__list {
-        margin: 0;
-        padding: 0;
-        line-height: 2em;
-        list-style: none;
-
-        border-bottom: 1px solid #eaeaea;
-
-        transform: rotate(180deg);
-    }
-
-    &__formContainer,
-    &__listItem {
-        display: flex;
-        align-items: center;
-
-        padding: .8em 0;
-
-        font-size: 18px;
-        line-height: 1.2;
-        hyphens: auto;
-        user-select: none;
-
-        &::before {
-            content: "";
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 auto;
-
-            margin-right: .8em;
-            width: 2.2em;
-            height: 2.2em;
-
-            font-family: 'Fredoka One', sans-serif;
-            font-size: 16px;
-            line-height: 1;
-            color: white;
-
-            border-radius: 100%;
-            background-color: var(--color-secondary);
-        }
-    }
-
-    &__formContainer {
-        &::before {
-            display: block;
-            padding: 0.6em;
-            content: url(../../images/icon-add.svg);
-            box-sizing: border-box;
-            background-color: #ece5ef;
-        }
-    }
-
-    &__listItem {
-        transform: rotate(-180deg);
-
-        &::before {
-            content: counter(my-badass-counter);
-            counter-increment: my-badass-counter;
-        }
-
-
-        &:not(:first-child) {
-            border-bottom: 1px solid #eaeaea;
-        }
-    }
-
-    &__listItemRemove {
-        margin: 0 0 0 auto;
-        padding: 0 0 0 .8em;
-
-        > img {
-            display: block;
-            width: 20px;
-            height: auto;
-        }
-    }
-
-    &__listItemContent {
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    &__form {
-        width: 100%;
-    }
-
-    &__input {
-        user-select: none;
-
-        > input[type="text"]::placeholder {
-            color: #b1b1b1;
-        }
-
-        > input[type="text"] {
-            padding: 0;
-            width: 100%;
-            border: 0;
-            outline: 0;
-        }
     }
 }

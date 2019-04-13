@@ -27,11 +27,11 @@ export default function IndexPage() {
 
     function addLocalChoice(choice) {
         const newChoices = [
-            ...localChoices,
             {
                 id: _.uniqueId(),
                 title: choice
-            }
+            },
+            ...localChoices,
         ];
         setLocalChoices(newChoices);
     };

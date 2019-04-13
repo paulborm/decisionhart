@@ -1,0 +1,54 @@
+.ChoiceInput {
+    position: sticky;
+    top: 0;
+    margin: 0 0 2em 0;
+
+    &__form {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        background-color: #e8e8e8;
+    }
+
+    &__input {
+        flex: 3;
+        display: block;
+        padding: 0 24px;
+        width: 100%;
+        outline: 0;
+        background: none;
+        border: 0;
+    }
+
+    &__remove {
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px 0;
+        height: 100%;
+        max-width: 100px;
+        border-radius: 0;
+
+        &.is-disabled {
+            color: gray;
+            background-color: transparent;
+
+            > svg path {
+                fill: gray;
+            }
+        }
+
+        > svg {
+            width: 14px;
+        }
+
+        > svg path {
+            fill: white;
+        }
+    }
+}

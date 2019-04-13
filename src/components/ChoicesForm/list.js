@@ -1,34 +1,31 @@
 import React from "react";
-import Button from "../Button";
+import ChoiceItem from "./ChoiceItem";
 
-import garbageIcon from "../../images/icon-garbage.svg";
+import './_list.scss';
 
 export default function ChoicesList({
-        baseName,
         items,
         remove
     }) {
 
     if (items.length <= 0) return null;
 
+    const baseName = 'ChoicesList';
+
     return (
-        <ol className={`${baseName}__list`}>
+        <div className={baseName}>
             {
                 items.map(item => {
                     return (
-                        <li className={`${baseName}__listItem`} key={item.id}>
-                            <div className={`${baseName}__listItemContent`}>{item.title}</div>
-                            <Button
-                                text
-                                className={`${baseName}__listItemRemove`}
-                                onClick={() => remove(item.id)}
-                            >
-                                <img src={garbageIcon} alt="" />
-                            </Button>
-                        </li>
+                        <ChoiceItem
+                            key={item.id}
+                            id={item.id}
+                            title={item.title}
+                            remove={remove}
+                        />
                     );
                 })
             }
-        </ol>
+        </div>
     )
 }
