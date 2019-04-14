@@ -8,13 +8,13 @@
         max-width: 100%;
         height: auto;
     }
-    
+
     &-enter {
         visibility: visible;
         opacity: 1;
         transform: scale(.3) rotate(0deg);
     }
-    
+
     &-enter-active {
         opacity: 1;
         transform: scale(1) rotate(720deg);
@@ -24,7 +24,7 @@
     &-exit {
         visibility: visible;
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) rotate(0);
     }
 
     &-exit-active {
