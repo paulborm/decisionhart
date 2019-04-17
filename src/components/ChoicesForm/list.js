@@ -1,14 +1,10 @@
 import React from "react";
 import ChoiceItem from "./ChoiceItem";
 
-import './_list.scss';
-
 export default function ChoicesList({
         items,
         remove
     }) {
-
-    if (items.length <= 0) return null;
 
     const baseName = 'ChoicesList';
 

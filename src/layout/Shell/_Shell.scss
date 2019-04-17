@@ -5,6 +5,12 @@
     height: calc(var(--vh, 1vh) * 100);
 
     &__header,
+    &__body,
+    &__controls {
+        will-change: transform, opacity;
+    }
+
+    &__header,
     &__body {
         padding: calc(var(--gutter) * 1px);
     }
@@ -32,5 +38,19 @@
             padding: 0 1em;
             border-radius: 0;
         }
+    }
+
+    &-appear,
+    &-enter {
+        opacity: 0;
+        //transform: translateY(48px);
+    }
+
+    &-appear-active,
+    &-enter-active {
+        opacity: 1;
+        //transform: translateY(0);
+        transition:
+            opacity calc(var(--transitionDuration, 500) * 1ms) ease-in-out;
     }
 }

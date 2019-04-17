@@ -31,8 +31,8 @@ export default function Intro({ toggleForm }) {
         <div className={baseName}>
             <Shell>
                 <Shell.Body className={`${baseName}__body`}>
-                    <Headline 
-                        className={`${baseName}__title`} 
+                    <Headline
+                        className={`${baseName}__title`}
                         size="h1"
                     >
                         {greeting}
