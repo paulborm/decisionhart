@@ -1,4 +1,13 @@
 .ChoiceInput {
+    --input-bg-color: #e8e8e8;
+    --icon-color: white;
+    --icon-color-disabled: gray;
+
+    @media (prefers-color-scheme: dark) {
+        --input-bg-color: #47324e;
+        --icon-color-disabled: #c4afcc;
+    }
+
     position: sticky;
     top: 0;
     margin: 0 0 2em 0;
@@ -9,7 +18,7 @@
         position: relative;
         border-radius: 4px;
         overflow: hidden;
-        background-color: #e8e8e8;
+        background-color: var(--input-bg-color);
     }
 
     &__input {
@@ -20,6 +29,11 @@
         outline: 0;
         background: none;
         border: 0;
+        color: var(--color-text);
+
+        &::placeholder {
+            color: var(--icon-color-disabled);
+        }
     }
 
     &__remove {
@@ -35,11 +49,11 @@
         border-radius: 0;
 
         &.is-disabled {
-            color: gray;
+            color: var(--icon-color-disabled);
             background-color: transparent;
 
             > svg path {
-                fill: gray;
+                fill: var(--icon-color-disabled);
             }
         }
 
@@ -48,7 +62,7 @@
         }
 
         > svg path {
-            fill: white;
+            fill: var(--icon-color);
         }
     }
 }

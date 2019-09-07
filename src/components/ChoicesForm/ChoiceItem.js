@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-import garbageIcon from "../../images/icon-garbage.svg";
+import GarbageIcon from "../../images/svg/icon-garbage.svg";
 import './_ChoiceItem.scss';
 
 export default function ChoiceItem({
@@ -23,7 +23,7 @@ export default function ChoiceItem({
                 className={`${baseName}__remove`}
                 onClick={() => remove(id)}
             >
-                <img src={garbageIcon} alt="" />
+                <GarbageIcon />
             </Button>
         </div>
     )

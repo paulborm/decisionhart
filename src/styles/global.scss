@@ -8,12 +8,18 @@
     --color-primary: #8806af;
     --color-secondary: #ea1678;
     --color-background: #ffffff;
+    --color-headline: #29022f;
     --color-text: #000000;
     --color-text-light: lightgray;
 }
 
 @media (prefers-color-scheme: dark) {
-    // add darkmode later
+    :root {
+        --color-background: #110017;
+        --color-headline: #fcecff;
+        --color-text: #fff;
+        --color-text-light: #443948;
+    }
 }
 
 body {

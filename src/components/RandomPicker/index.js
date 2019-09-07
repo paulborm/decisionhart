@@ -73,10 +73,10 @@ export default class RandomPicker extends React.PureComponent {
             <div className="RandomPicker">
                 <Shell>
                     <Shell.Header>
-                        <Headline 
+                        <Headline
                             size="h1"
                             style={{
-                                color: isFinished ? '#bbbbbb' : '#000',
+                                color: isFinished ? 'var(--color-text-light)' : '',
                                 transition: 'color 1000ms ease-in-out',
                             }}
                         >
@@ -91,15 +91,15 @@ export default class RandomPicker extends React.PureComponent {
                         </div>
                     </Shell.Body>
 
-                    <Shell.Controls>                        
-                        <RandomPickerControls 
+                    <Shell.Controls>
+                        <RandomPickerControls
                             isRunning={isRunning}
                             isFinished={isFinished}
                             status={status}
                             toggleForm={toggleForm}
                             start={this.start}
                             stop={this.stop}
-                            reset={reset}                            
+                            reset={reset}
                         />
                     </Shell.Controls>
                 </Shell>

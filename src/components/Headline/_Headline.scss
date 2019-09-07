@@ -2,9 +2,9 @@
     font-family: 'Fredoka One', sans-serif;
     line-height: 1.1;
     letter-spacing: 0.01em;
-    color: #29022f;
+    color: var(--color-headline);
     hyphens: auto;
-    
+
     &--h1 {
         font-size: 42px;
     }
