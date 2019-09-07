@@ -7,26 +7,34 @@ module.exports = {
     plugins: [
         `gatsby-plugin-react-helmet`,
         {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            name: `images`,
-            path: `${__dirname}/src/images`,
-        },
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `images`,
+                path: `${__dirname}/src/images`,
+            },
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         {
-        resolve: `gatsby-plugin-manifest`,
-        options: {
-            name: `DecisionHart`,
-            short_name: `DecisionHart`,
-            start_url: `/`,
-            background_color: `#8806af`,
-            theme_color: `#8806af`,
-            display: `standalone`,
-            orientation: `portrait`,
-            icon: `src/images/decisionhart-icon.png`,
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `DecisionHart`,
+                short_name: `DecisionHart`,
+                start_url: `/`,
+                background_color: `#8806af`,
+                theme_color: `#8806af`,
+                display: `standalone`,
+                orientation: `portrait`,
+                icon: `src/images/decisionhart-icon.png`,
+            },
         },
+        {
+            resolve: 'gatsby-plugin-react-svg',
+            options: {
+                rule: {
+                    include: /svg/
+                }
+            }
         },
         `gatsby-plugin-sass`,
         `gatsby-plugin-lodash`,
