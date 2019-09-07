@@ -15,18 +15,17 @@ export default function ChoicesForm({
         confirm,
         abort
     }) {
-
-    if (!isVisible) return null;
-
     const baseName = "ChoicesForm";
     const inputRef = useRef(null);
     const [input, setInput] = useState("");
 
     useEffect(() => {
+        if (!inputRef.current) return;
         inputRef.current.focus();
-    });
+    }, [inputRef]);
 
     function onInputChange() {
+        if (!inputRef.current) return;
         setInput(inputRef.current.value);
     }
 
@@ -36,6 +35,8 @@ export default function ChoicesForm({
         addChoice(input);
         setInput("");
     }
+
+    if (!isVisible) return null;
 
     return (
         <div className={baseName}>
