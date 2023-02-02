@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.15.9",
+    "gatsby": "^5.5.0",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-lodash": "^3.1.6",
     "gatsby-plugin-manifest": "^2.2.14",
@@ -13,7 +13,7 @@
     "gatsby-plugin-react-helmet": "^3.1.6",
     "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sass": "^2.1.13",
-    "gatsby-plugin-sharp": "^2.2.20",
+    "gatsby-plugin-sharp": "^2.14.4",
     "gatsby-source-filesystem": "^2.1.21",
     "gatsby-transformer-sharp": "^2.2.13",
     "lodash": "^4.17.21",
